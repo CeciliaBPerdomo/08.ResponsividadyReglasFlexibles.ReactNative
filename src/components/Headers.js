@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import colors from '../utils/global/colors'
+import { AntDesign } from "@expo/vector-icons" //Iconos
 
-const Headers = ({ title}) => {
+const Headers = ({ title }) => {
     return (
         <View style={styles.container}>
+            {/* <Pressable
+                onPress={handleCategory}
+            >
+                <AntDesign name="back" size={30} color={"blue"} style={styles.flecha} />
+            </Pressable> */}
 
             <Text style={styles.text}>
                 {title}
@@ -21,10 +27,17 @@ const styles = StyleSheet.create({
         height: 80,
         width: "100%",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        // flexDirection: "row",
+        // justifyContent: "space-start",
+        // padding: 10,
+        // gap: 5,
     },
 
     text: {
-        fontSize: 30
+        fontSize: 30,
+        alignItems: "center",
+        justifyContent: "center",
+        marginLeft: 60
     }
 })

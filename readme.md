@@ -19,3 +19,9 @@
 ## Información útil
 - https://dummyjson.com/#google_vignette
 - https://color.adobe.com/es/create/color-wheel
+
+## Instalaciones: 
+- npm install expo-font (https://docs.expo.dev/versions/latest/sdk/font/)
+
+## Iconos:
+- https://oblador.github.io/react-native-vector-icons/

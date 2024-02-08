@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
+import colors from '../utils/global/colors'
 
 const Headers = ({ title}) => {
     return (
@@ -16,7 +17,7 @@ export default Headers
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#F4D678",
+        backgroundColor: colors.green1,
         height: 80,
         width: "100%",
         justifyContent: "center",

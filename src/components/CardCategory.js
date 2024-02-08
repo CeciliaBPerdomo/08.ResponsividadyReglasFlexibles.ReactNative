@@ -1,15 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import ShadowPrimary from './wrappers/ShadowPrimary'
 import colors from '../utils/global/colors'
 
-const CardCategory = ({ item }) => {
+const CardCategory = ({ item, selectedCategoryState }) => {
     return (
-        <ShadowPrimary style={styles.container}>
-            <Text style={styles.texto}>
-                {item}
-            </Text>
-        </ShadowPrimary>
+        <Pressable onPress={() => selectedCategoryState(item)}>
+            <ShadowPrimary style={styles.container}>
+                <Text style={styles.texto}>
+                    {item}
+                </Text>
+            </ShadowPrimary>
+        </Pressable>
     )
 }
 
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         padding: 20,
         alignItems: "center",
         borderRadius: 10,
-       justifyContent: "center"
+        justifyContent: "center"
     },
 
     texto: {

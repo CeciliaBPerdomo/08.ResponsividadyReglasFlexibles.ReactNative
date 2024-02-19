@@ -5,12 +5,6 @@ import { AntDesign } from "@expo/vector-icons" //Iconos
 const Headers = ({ title }) => {
     return (
         <View style={styles.container}>
-            {/* <Pressable
-                onPress={handleCategory}
-            >
-                <AntDesign name="back" size={30} color={"blue"} style={styles.flecha} />
-            </Pressable> */}
-
             <Text style={styles.text}>
                 {title}
             </Text>
@@ -28,16 +22,9 @@ const styles = StyleSheet.create({
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
-        // flexDirection: "row",
-        // justifyContent: "space-start",
-        // padding: 10,
-        // gap: 5,
     },
 
     text: {
         fontSize: 30,
-        alignItems: "center",
-        justifyContent: "center",
-        marginLeft: 60
     }
 })

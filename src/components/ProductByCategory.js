@@ -1,17 +1,30 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, useWindowDimensions, Pressable } from 'react-native'
 import React from 'react'
 import colors from '../utils/global/colors'
 
-const ProductByCategory = ({ item }) => {
+const ProductByCategory = ({ item, selectedProductId }) => {
+    const { width } = useWindowDimensions()
+
     return (
-        <View style={styles.container}>
+        <Pressable
+            onPress={() => selectedProductId(item.id)}
+            style={styles.container}
+        >
             <Image
                 source={{ uri: item.thumbnail }}
                 style={styles.imagen}
                 resizeMode="cover"
             />
-            <Text style={styles.texto}>{item.id} - {item.title}</Text>
-        </View>
+
+            <Text style={[
+                styles.texto,
+                // Texto responsive
+                width > 490 ? { fontSize: 24, fontWeight: "bold" } : { fontSize: 16 }
+            ]}>
+                {item.id} - {item.title}
+            </Text>
+
+        </Pressable>
     )
 }
 
@@ -39,8 +52,9 @@ const styles = StyleSheet.create({
 
     imagen: {
         minHeight: 90,
-        mixWidth: 90,
+        minWidth: 90,
         width: "30%",
+        height: "30%",
         borderRadius: 5
     }
 })

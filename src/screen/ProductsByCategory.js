@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import ProductByCategory from '../components/ProductByCategory'
 import Search from '../components/wrappers/Search'
 
-const ProductsByCategory = ({ categorySelected }) => {
+const ProductsByCategory = ({ categorySelected, selectedProductId }) => {
 
   const [productsFiltered, setProductsFiltered] = useState([])
   const [keyWord, setKeyWord] = useState("")
@@ -35,17 +35,20 @@ const ProductsByCategory = ({ categorySelected }) => {
   return (
     <>
       <View style={styles.encabezado}>
-        
+
         <Headers title={categorySelected || "Productos"} />
       </View>
-      
+
       <Search handlerKeyWord={handlerKeyWord} />
-      
+
       <FlatList
         style={styles.container}
         data={productsFiltered}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <ProductByCategory item={item} />}
+        renderItem={({ item }) => <ProductByCategory
+          item={item}
+          selectedProductId={selectedProductId}
+        />}
       />
     </>
   )

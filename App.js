@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native'
-import { useState } from 'react'
+import { StyleSheet, StatusBar, SafeAreaView } from 'react-native'
+import {  useState } from 'react'
 
 import Home from './src/screen/Home'
 import ProductsByCategory from './src/screen/ProductsByCategory'

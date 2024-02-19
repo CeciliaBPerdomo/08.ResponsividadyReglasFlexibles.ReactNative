@@ -1,36 +1,48 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import products from "../utils/data/productos.json"
+import { StyleSheet, Text, View, Image, Pressable, useWindowDimensions } from 'react-native'
 import { useEffect, useState } from 'react'
+
+import products from "../utils/data/productos.json"
+
 import Headers from '../components/Headers'
 import colors from '../utils/global/colors'
 
 const ProductDetail = ({ productId }) => {
   const [product, setProduct] = useState({})
+  const [portait, setPortait] = useState(true)
+  
+  const { width, height } = useWindowDimensions()
 
   useEffect(() => {
     const productFinded = products.find(item => item.id === productId)
     setProduct(productFinded)
-  }, [productId])
+
+    if (width > height) { //esta acostado
+      setPortait(false) 
+    } else {
+      setPortait(true)
+    }
+
+  }, [productId, height, width])
 
   return (
     <View style={styles.container}>
 
       <Headers title="Detalles" />
 
-      <View style={styles.content}>
+      <View style={[styles.content, !portait && {flexDirection: "row", gap: 10, padding: 20}]}>
         <Image
-          style={styles.image}
+          style={[styles.image, !portait && {width: "40%", height: 200}]}
           source={product?.images ? { uri: product?.images[0] } : null}
           resizeMode="cover"
         />
       </View>
 
-      <View style={styles.containerText}>
+      <View style={[styles.containerText, !portait && {width: "30%"}]}>
         <Text style={styles.title}>{product.title}</Text>
         <Text>{product.description}</Text>
       </View>
 
-      <View style={styles.containerPrice}>
+      <View style={[styles.containerPrice, !portait && {width: "20%", flexDirection: "column"}]}>
         <Text style={styles.price}>
           $ {product.price}
         </Text>

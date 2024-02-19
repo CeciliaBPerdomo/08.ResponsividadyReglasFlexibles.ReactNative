@@ -34,12 +34,13 @@ const styles = StyleSheet.create({
         width: "60%",
         fontSize: 16,
         color: "white"
-        // fontFamily: fonts.Josefin
+        //fontFamily: fonts.Josefin
     },
 
     imagen: {
-        width: 90,
-        height: 90,
+        minHeight: 90,
+        mixWidth: 90,
+        width: "30%",
         borderRadius: 5
     }
 })
